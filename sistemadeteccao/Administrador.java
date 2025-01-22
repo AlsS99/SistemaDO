@@ -4,38 +4,38 @@ package sistemadeteccao;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Administrador {
+public class Administrador<MateriaisEscolares> {
 
-    private String nome;
-    private List<ObjetoEscolar> objetosEscolares;
-    private Deteccao deteccao;
+    private String nome; 
+    private List<MateriaisEscolares> MateriaisEscolares; 
+    private Deteccao deteccao; 
 
     public Administrador(String nome) {
-        this.nome = nome;
-        this.objetosEscolares = new ArrayList<>();
+        this.nome = nome; 
+        this.MateriaisEscolares = new ArrayList<>(); 
         this.deteccao = new Deteccao();
     }
 
-    public void adicionarObjetoEscolar(ObjetoEscolar objeto) {
-        objetosEscolares.add(objeto);
-        System.out.println("Objeto escolar adicionado: " + objeto.getNome());
+    public void adicionarMateriaisEscolares(MateriaisEscolares objeto) {
+        MateriaisEscolares.add(objeto); 
+        System.out.println("Objeto escolar adicionado: " + ((Object) objeto).getNome());
     }
 
     public void iniciarDeteccao() {
-        deteccao.detectar();
+        Deteccao.detectar(); 
     }
 
     public void exibirObjetosEscolares() {
         System.out.println("Objetos escolares cadastrados:");
-        for (ObjetoEscolar objeto : objetosEscolares) {
-            objeto.descreverObjeto();
+        for (MateriaisEscolares objeto : MateriaisEscolares) {
+            objeto.descreverObjeto(); 
         }
     }
 
     public String getNome() {
         return nome;
     }
-    
+
     public static void main(String[] args) {
             BancoDeDados banco = new BancoDeDados();
             banco.testarConexao();
