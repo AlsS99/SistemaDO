@@ -2,12 +2,12 @@ package sistemadeteccao;
 
 //Classe abstrata representando um objeto escolar
 
-abstract class ObjetoEscolar {
+abstract class MateriaisEscolares {
 
  private String nome;
  private String categoria;
 
- public ObjetoEscolar(String nome, String categoria) {
+ public MateriaisEscolares(String nome, String categoria) {
      this.nome = nome;
      this.categoria = categoria;
  }
