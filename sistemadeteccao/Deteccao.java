@@ -1,16 +1,9 @@
 package sistemadeteccao;
 
-
-import java.util.List;
 import java.util.ArrayList;
-
-interface DetectorDeObjetos {
-
-    void detectar();
-}
+import java.util.List;
 
 public class Deteccao implements DetectorDeObjetos {
-
     private List<ObjetoEscolar> objetosDetectados;
 
     public Deteccao() {
@@ -20,13 +13,13 @@ public class Deteccao implements DetectorDeObjetos {
     @Override
     public void detectar() {
         System.out.println("Iniciando detecção...");
-        // Simulação da detecção de objetos
-        objetosDetectados.add(new Caneta("Caneta Azul", "Material de Escrita", "Azul"));
-        objetosDetectados.add(new Caderno("Caderno Universitário", "Material de Estudo", 200));
-        System.out.println("Objetos detectados!");
+        objetosDetectados.add(new Caneta("Caneta Preta", "Material de Escrita", "Preta"));
+        objetosDetectados.add(new Caderno("Caderno Espiral", "Material de Estudo", 100));
+        System.out.println("Objetos detectados com sucesso!");
     }
 
     public List<ObjetoEscolar> getObjetosDetectados() {
         return objetosDetectados;
     }
 }
+
