@@ -1,33 +1,25 @@
 package sistemadeteccao;
 
 public class Main {
-
     public static void main(String[] args) {
-        // Criando o Administrador
-        Administrador admin = new Administrador("Carlos");
-
-        // Criando objetos escolares
-        ObjetoEscolar caneta = new Caneta("Caneta Azul", "Material de Escrita", "Azul");
-        ObjetoEscolar caderno = new Caderno("Caderno Universitário", "Material de Estudo", 200);
-
-        // Adicionando objetos ao sistema
-        admin.adicionarObjetoEscolar(caneta);
-        admin.adicionarObjetoEscolar(caderno);
-
-        // Criando um usuário
-        Usuario usuario = new Usuario("Ana", 25);
-
-        // Usuário interagindo com o sistema
-        usuario.interagirComSistema(admin);
-
-        // Iniciando a detecção
-        admin.iniciarDeteccao();
-    
-    
+        Administrador admin = new Administrador("Katyellen");
         BancoDeDados bd = new BancoDeDados();
+
+        // Testar conexão com o banco
         bd.testarConexao();
+
+        // Iniciar detecção de objetos
+        admin.iniciarDeteccao();
+
+        // Salvar objetos detectados no banco de dados
+        for (ObjetoEscolar objeto : admin.getDeteccao().getObjetosDetectados()) {
+            bd.salvarObjeto(objeto);
+        }
+
+        // Listar objetos armazenados no banco de dados
+        System.out.println("\nObjetos armazenados no banco de dados:");
+        for (ObjetoEscolar objeto : bd.listarObjetos()) {
+            objeto.descreverObjeto();
+        }
     }
-
 }
-
-
